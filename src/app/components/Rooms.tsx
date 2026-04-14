@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Users, Wifi, Coffee, Star, ArrowRight, Loader2 } from 'lucide-react';
 import { api } from '../services/api';
-import { RoomCardSkeleton } from './ui/Skeleton';
+import { RoomCardSkeleton } from './ui/skeleton';
 
 interface RoomsProps {
   onBookRoom: (room: any) => void;
