@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, User, ChevronDown, CalendarDays, LogOut } from 'lucide-react';
+import { Menu, X, User, ChevronDown, CalendarDays, LogOut, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 interface NavbarProps {
@@ -88,6 +88,15 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
 
                 {profileOpen && (
                   <div className="absolute top-full right-0 mt-3 w-64 bg-white rounded-3xl shadow-2xl border border-slate-100 p-2 overflow-hidden animate-in slide-in-from-top-2 duration-200">
+                    {user?.role === 'ADMIN' && (
+                      <button 
+                        onClick={() => { setProfileOpen(false); window.open('/admin', '_blank'); }}
+                        className="w-full flex items-center gap-3 px-4 py-3 text-amber-600 hover:bg-amber-50 rounded-2xl transition-all group"
+                      >
+                        <ShieldCheck size={18} className="text-amber-500" />
+                        <span className="text-sm font-bold">Admin Dashboard</span>
+                      </button>
+                    )}
                     <button 
                       onClick={() => { setProfileOpen(false); onMyBookingsClick(); }}
                       className="w-full flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 hover:text-slate-900 rounded-2xl transition-all group"
