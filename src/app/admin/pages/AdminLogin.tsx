@@ -9,6 +9,7 @@ import {
 import { motion } from 'motion/react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router';
+import { api } from '../../services/api';
 
 export const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
