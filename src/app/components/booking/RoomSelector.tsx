@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users, Star, ArrowRight, Zap, Loader2, Calendar } from 'lucide-react';
 import { useBookingFlow } from '../../hooks/useBookingFlow';
-import { RoomCardSkeleton } from '../ui/Skeleton';
+import { RoomCardSkeleton } from '../ui/skeleton';
 
 export function RoomSelector({ flow }: { flow: ReturnType<typeof useBookingFlow> }) {
   const { availableRooms, suggestions, handleRoomSelect, state, checkAvailability, setStep } = flow;
