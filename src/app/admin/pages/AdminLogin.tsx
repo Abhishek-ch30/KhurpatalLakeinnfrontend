@@ -25,23 +25,17 @@ export const AdminLogin: React.FC = () => {
     setError('');
 
     try {
-      // Mock login for direct access as requested
-      if (email === 'admin@khurpatal.com' && password === 'admin123') {
-        const mockUser = {
-          id: '1',
-          name: 'Super Admin',
-          email: 'admin@khurpatal.com',
-          role: 'ADMIN'
-        };
-        const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
-        
-        login({ ...mockUser, token: mockToken });
-        navigate('/admin');
-      } else {
-        setError('Invalid credentials. Please try again.');
+      const response = await api.login({ identity: email, password });
+      
+      if (response.role !== 'ADMIN') {
+        setError('Access denied. You do not have administrator privileges.');
+        return;
       }
-    } catch (err) {
-      setError('An error occurred during login.');
+
+      login(response);
+      navigate('/admin');
+    } catch (err: any) {
+      setError(err.message || 'Invalid credentials. Please try again.');
     } finally {
       setIsLoading(false);
     }
