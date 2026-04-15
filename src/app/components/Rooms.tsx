@@ -100,8 +100,8 @@ export function Rooms({ onBookRoom }: RoomsProps) {
                 <div className="relative h-[500px] md:h-[650px] overflow-hidden">
                   <ImageWithFallback
                     src={featuredRooms[0].type.toLowerCase().includes('luxury') 
-                      ? "https://i.ibb.co/HDSQfrLn/IMG-2690-1-scaled.jpg"
-                      : "https://i.ibb.co/5xsG70J2/IMG-2711-1-scaled.jpg"}
+                      ? "/assets/images/IMG_2690-1-scaled.jpg"
+                      : "/assets/images/IMG_2711-1-scaled.jpg"}
                     alt={featuredRooms[0].type}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />
@@ -181,8 +181,8 @@ export function Rooms({ onBookRoom }: RoomsProps) {
                 <div className="relative h-[300px] mb-10 overflow-hidden rounded-[2.5rem] shadow-xl">
                   <ImageWithFallback
                     src={room.type.toLowerCase().includes('luxury') 
-                      ? "https://i.ibb.co/HDSQfrLn/IMG-2690-1-scaled.jpg"
-                      : "https://i.ibb.co/5xsG70J2/IMG-2711-1-scaled.jpg"}
+                      ? "/assets/images/IMG_2690-1-scaled.jpg"
+                      : "/assets/images/IMG_2711-1-scaled.jpg"}
                     alt={room.type}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />

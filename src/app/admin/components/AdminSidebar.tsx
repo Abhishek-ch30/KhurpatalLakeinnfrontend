@@ -41,7 +41,7 @@ export const AdminSidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }
       <div className="p-6">
         <div className="flex flex-col items-center mb-4">
           <img 
-            src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png" 
+            src="/assets/images/cropped-Untitled_design_7-SdfZIicur-transformed-transformed.png" 
             alt="Khurpatal Lake Inn" 
             className="h-16 w-auto object-contain brightness-0 invert"
           />

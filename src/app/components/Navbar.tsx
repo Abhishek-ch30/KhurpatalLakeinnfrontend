@@ -54,7 +54,7 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
             transition={{ duration: 0.2 }}
           >
             <img 
-              src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png"
+              src="/assets/images/cropped-Untitled_design_7-SdfZIicur-transformed-transformed.png"
               alt="Khurpatal Lake Inn"
               className={`h-8 md:h-14 w-auto object-contain transition-all duration-300 drop-shadow-sm ${!scrolled ? 'brightness-110' : ''}`}
             />

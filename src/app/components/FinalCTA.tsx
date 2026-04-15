@@ -24,7 +24,8 @@ export function FinalCTA({ onBookNow }: FinalCTAProps) {
              className="w-full h-full object-cover grayscale-[20%] contrast-[1.1]"
            />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#434021] via-transparent to-[#434021] z-20" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white to-transparent z-25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#434021]/20 via-transparent to-[#434021] z-20" />
       </div>
 
       {/* The Inevitable Horizon Content */}
@@ -35,14 +36,20 @@ export function FinalCTA({ onBookNow }: FinalCTAProps) {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          {/* Availability Pulse Badge */}
+          {/* The Path to Clarity - Section Bridge */}
+          <div className="flex flex-col items-center gap-4 mb-10 opacity-80">
+             <div className="w-12 h-px bg-[#434021]/20" />
+             <p className="text-[10px] font-black uppercase tracking-[0.6em] text-[#434021]">The Path to Clarity</p>
+          </div>
+
+          {/* Availability Pulse Badge - Enhanced Visibility */}
           <div className="flex justify-center mb-12">
              <motion.div 
                animate={{ scale: [1, 1.05, 1] }}
                transition={{ duration: 4, repeat: Infinity }}
-               className="inline-flex items-center gap-3 px-6 py-2 backdrop-blur-3xl bg-white/5 border border-white/10 rounded-full"
+               className="inline-flex items-center gap-3 px-6 py-2 backdrop-blur-xl bg-[#434021]/60 border border-white/20 rounded-full shadow-2xl"
              >
-                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
+                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse shadow-[0_0_12px_rgba(245,158,11,0.8)]" />
                 <span className="text-white tracking-[0.4em] text-[10px] font-black uppercase">Availability: Strictly Limited</span>
              </motion.div>
           </div>

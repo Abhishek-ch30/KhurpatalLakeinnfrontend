@@ -64,8 +64,8 @@ export function PlanStaySection({ flow, onStartConversation }: PlanStaySectionPr
               >
                   <div className="relative rounded-[3rem] overflow-hidden border-4 border-[#FBF6EE] shadow-xl h-[300px] group">
                      <ImageWithFallback 
-                        src="https://i.ibb.co/XZvkdBfB/photo-1601622256416-d7f757f99eb2.avif" 
-                        alt="Khurpatal Nature" 
+                        src="/assets/images/nainital.avif" 
+                        alt="Nainital City" 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                      />
                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
@@ -115,7 +115,7 @@ export function PlanStaySection({ flow, onStartConversation }: PlanStaySectionPr
 
                   <div className="relative rounded-[3rem] overflow-hidden border-4 border-[#FBF6EE] shadow-xl h-[300px] group text-right">
                      <ImageWithFallback 
-                        src="https://i.ibb.co/MkphPXbC/photo-1683973200791-47539048cf63.avif" 
+                        src="/assets/images/photo-1732510291333-b347b91e20bf.avif" 
                         alt="Lake Reflection" 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                      />
@@ -129,12 +129,14 @@ export function PlanStaySection({ flow, onStartConversation }: PlanStaySectionPr
               </motion.div>
            </div>
 
-           {/* Decorative Balanced Frame */}
-           <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none -z-1">
-              <div className="absolute top-0 right-0 w-40 h-40 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[5rem]" />
-              <div className="absolute top-0 left-0 w-40 h-40 border-t-2 border-l-2 border-amber-500/20 rounded-tl-[5rem]" />
-              <div className="absolute bottom-0 right-0 w-40 h-40 border-b-2 border-r-2 border-amber-500/20 rounded-br-[5rem]" />
-              <div className="absolute bottom-0 left-0 w-40 h-40 border-b-2 border-l-2 border-amber-500/20 rounded-bl-[5rem]" />
+           {/* Restored & Visible Decorative Frame */}
+           <div className="absolute inset-x-0 inset-y-8 md:inset-y-12 pointer-events-none z-0">
+              <div className="relative w-full h-full">
+                 <div className="absolute top-0 right-0 w-48 h-48 border-t-[1.5px] border-r-[1.5px] border-amber-500/20 rounded-tr-[5rem]" />
+                 <div className="absolute top-0 left-0 w-48 h-48 border-t-[1.5px] border-l-[1.5px] border-amber-500/20 rounded-tl-[5rem]" />
+                 <div className="absolute bottom-0 right-0 w-48 h-48 border-b-[1.5px] border-r-[1.5px] border-amber-500/20 rounded-br-[5rem]" />
+                 <div className="absolute bottom-0 left-0 w-48 h-48 border-b-[1.5px] border-l-[1.5px] border-amber-500/20 rounded-bl-[5rem]" />
+              </div>
            </div>
         </div>
       </div>

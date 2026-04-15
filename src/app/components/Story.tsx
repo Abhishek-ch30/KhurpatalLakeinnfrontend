@@ -53,7 +53,7 @@ export function Story() {
              className="relative w-full h-[600px] rounded-[5rem] overflow-hidden shadow-2xl border-8 border-white"
            >
               <ImageWithFallback
-                src="https://i.ibb.co/8Dgw3CVT/Gemini-Generated-Image-73935r73935r7393.png"
+                src="/assets/images/photo-1732510291333-b347b91e20bf.avif"
                 alt="Panoramic view of Khurpatal Lake Inn mountains"
                 className="w-full h-full object-cover"
               />
@@ -115,9 +115,6 @@ export function Story() {
               </div>
            </motion.div>
 
-           {/* Decorative Frames - Consistent with previous sections */}
-           <div className="absolute -top-12 -right-12 w-48 h-48 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[6rem]" />
-           <div className="absolute -bottom-12 -left-12 w-48 h-48 border-b-2 border-l-2 border-amber-500/20 rounded-bl-[6rem]" />
         </div>
       </div>
     </section>

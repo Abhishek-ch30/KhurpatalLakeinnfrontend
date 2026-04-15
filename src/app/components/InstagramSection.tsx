@@ -8,32 +8,32 @@ const INSTA_URL = `https://www.instagram.com/${INSTA_HANDLE}/`;
 const POSTS = [
   {
     id: 1,
-    url: 'https://i.ibb.co/tM4g1m0H/In-Shot-20240726-2246565361-scaled.jpg',
+    url: '/assets/images/InShot_20240726_2246565361-scaled.jpg',
     link: INSTA_URL
   },
   {
     id: 2,
-    url: 'https://i.ibb.co/YBszTZ1b/caption-13.jpg',
+    url: '/assets/images/caption (13).jpg',
     link: INSTA_URL
   },
   {
     id: 3,
-    url: 'https://i.ibb.co/TqN8jQpQ/caption-14.jpg',
+    url: '/assets/images/caption (14).jpg',
     link: INSTA_URL
   },
   {
     id: 4,
-    url: 'https://i.ibb.co/HDSQfrLn/IMG-2690-1-scaled.jpg',
+    url: '/assets/images/IMG_2690-1-scaled.jpg',
     link: INSTA_URL
   },
   {
     id: 5,
-    url: 'https://i.ibb.co/mkfrxBY/2025-12-24.jpg',
+    url: '/assets/images/2025-12-24.jpg',
     link: INSTA_URL
   },
   {
     id: 6,
-    url: 'https://i.ibb.co/67p49c6z/caption-1.jpg',
+    url: '/assets/images/caption (1).jpg',
     link: INSTA_URL
   }
 ];
@@ -50,7 +50,7 @@ export function InstagramSection() {
               <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600">
                 <div className="w-full h-full rounded-full border-2 border-white overflow-hidden bg-slate-100">
                   <img 
-                    src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png" 
+                    src="/assets/images/cropped-Untitled_design_7-SdfZIicur-transformed-transformed.png" 
                     alt={INSTA_HANDLE}
                     className="w-full h-full object-cover scale-125"
                   />

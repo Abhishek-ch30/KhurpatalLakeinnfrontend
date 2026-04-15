@@ -28,9 +28,9 @@ export function LocationSection() {
   ];
 
   return (
-    <section id="location" className="py-32 bg-[#FBF6EE] relative overflow-hidden">
+    <section id="location" className="py-32 bg-white relative overflow-hidden">
       {/* Background Ambience */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[#434021]/5 rounded-full blur-[120px] -z-0 opacity-40 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-amber-500/5 rounded-full blur-[120px] -z-0 opacity-40 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         
@@ -40,10 +40,10 @@ export function LocationSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-[#434021]/10 rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 rounded-full mb-6"
           >
-             <div className="w-1 h-1 bg-[#434021] rounded-full animate-pulse" />
-             <span className="text-[#434021]/70 tracking-[0.5em] text-[10px] font-black uppercase">The Path to Paradise</span>
+             <div className="w-1 h-1 bg-amber-500 rounded-full animate-pulse" />
+             <span className="text-amber-700 tracking-[0.5em] text-[10px] font-black uppercase">The Path to Paradise</span>
           </motion.div>
           
           <motion.h2 
@@ -75,7 +75,7 @@ export function LocationSection() {
              whileInView={{ opacity: 1, scale: 1 }}
              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
              viewport={{ once: true }}
-             className="relative w-full h-[400px] md:h-[500px] lg:h-[700px] rounded-[2.5rem] md:rounded-[4.5rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white group"
+             className="relative w-full h-[400px] md:h-[500px] lg:h-[700px] rounded-[2.5rem] md:rounded-[4.5rem] overflow-hidden shadow-2xl border-4 md:border-8 border-[#FBF6EE] group"
            >
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3359.254578373006!2d79.42676857538683!3d29.371334275269483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0a1006fd69167%3A0xc1ff9b39738241fa!2sKhurpatal%20Lake%20Inn!5e1!3m2!1sen!2sin!4v1776191528835!5m2!1sen!2sin" 
@@ -96,11 +96,11 @@ export function LocationSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + (idx * 0.1) }}
-                  className="p-8 md:p-10 backdrop-blur-3xl bg-white/80 border border-white/50 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.15)] group hover:bg-white md:hover:-translate-y-2 transition-all duration-500"
+                  className="p-8 md:p-10 bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.05)] group hover:bg-white md:hover:-translate-y-2 transition-all duration-500"
                 >
                    <div className="relative mb-8 w-14 h-14">
                       <div className="absolute inset-0 bg-amber-500/10 rounded-2xl rotate-6 group-hover:rotate-12 group-hover:bg-amber-500 transition-all duration-700" />
-                      <div className="absolute inset-0 bg-white shadow-lg rounded-2xl flex items-center justify-center text-[#434021] group-hover:scale-110 group-hover:text-amber-900 transition-transform duration-500">
+                      <div className="absolute inset-0 bg-white shadow-md rounded-2xl flex items-center justify-center text-[#434021] group-hover:scale-110 group-hover:text-amber-900 transition-transform duration-500">
                          {item.icon}
                       </div>
                    </div>
@@ -112,7 +112,7 @@ export function LocationSection() {
                    
                    <div className="flex flex-wrap gap-2 pt-6 border-t border-amber-500/10">
                       {item.links.map(link => (
-                        <span key={link} className="px-3 py-1.5 bg-white border border-slate-100 rounded-full text-[8px] font-black uppercase tracking-widest text-slate-400">
+                        <span key={link} className="px-3 py-1.5 bg-white border border-amber-500/10 rounded-full text-[8px] font-black uppercase tracking-widest text-amber-700 shadow-sm">
                            {link}
                         </span>
                       ))}

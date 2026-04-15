@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChefHat, Utensils, Wine, Clock, Sparkles, MapPin, Coffee } from 'lucide-react';
 
 const KITCHEN_IMAGES = [
-  "https://i.ibb.co/mkfrxBY/2025-12-24.jpg",
-  "https://i.ibb.co/3mV1tYx8/caption-12.jpg",
-  "https://i.ibb.co/LXp5x5cf/caption-11.jpg",
-  "https://i.ibb.co/zhzWm6mp/2025-12-24-4.jpg",
-  "https://i.ibb.co/rKSt52pd/2025-02-09.jpg"
+  "/assets/images/2025-12-24.jpg",
+  "/assets/images/caption (12).jpg",
+  "/assets/images/caption (11).jpg",
+  "/assets/images/2025-12-24 (4).jpg",
+  "/assets/images/2025-02-09.jpg"
 ];
 
 export function DiningSection() {

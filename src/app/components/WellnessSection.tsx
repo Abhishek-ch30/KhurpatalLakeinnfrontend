@@ -54,15 +54,15 @@ export function WellnessSection() {
              className="relative w-full h-[500px] lg:h-[650px] rounded-[4.5rem] overflow-hidden shadow-2xl border-8 border-white group"
            >
               <img 
-                src="https://i.ibb.co/z1BxjZs/Gemini-Generated-Image-f5klxnf5klxnf5kl.png" 
+                src="/assets/images/2025-12-24 (2).jpg" 
                 alt="The Horizon Pool at Khurpatal Lake Inn" 
                 className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-[2000ms]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#434021]/60 via-transparent to-transparent pointer-events-none" />
               
-              {/* Floating Glass Detail - Bottom Right */}
-              <div className="absolute bottom-12 right-12 p-8 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[3rem] text-white max-w-xs transition-all group-hover:bg-white/20">
-                 <div className="flex items-center gap-4 mb-4">
+              {/* Floating Glass Detail - Responsive Alignment */}
+              <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-auto p-6 md:p-8 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2.5rem] md:rounded-[3rem] text-white md:max-w-xs transition-all group-hover:bg-white/20 text-center">
+                 <div className="flex flex-col items-center gap-4 mb-4">
                     <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-[#434021]">
                        <Waves size={20} />
                     </div>

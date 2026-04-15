@@ -36,25 +36,25 @@ export function WhyKhurpatal() {
     { 
         name: 'Nainital', 
         distance: '12 km', 
-        image: 'https://i.ibb.co/XZvkdBfB/photo-1601622256416-d7f757f99eb2.avif',
+        image: '/assets/images/nainital.avif',
         desc: 'The sparkling City of Lakes'
     },
     { 
         name: 'Bhimtal', 
         distance: '8 km', 
-        image: 'https://i.ibb.co/MkphPXbC/photo-1683973200791-47539048cf63.avif',
+        image: '/assets/images/bhimtal.avif',
         desc: 'Serene waters and aquarium island'
     },
     { 
         name: 'Sattal', 
         distance: '15 km', 
-        image: 'https://i.ibb.co/VcCs0Dqq/UTDB-media-1736501501-Under-Banner-1.jpg',
+        image: '/assets/images/sattal.jpg',
         desc: 'Seven interconnected freshwater lakes'
     },
     { 
         name: 'Mukteshwar', 
         distance: '25 km', 
-        image: 'https://i.ibb.co/9k8XVTpm/photo-1630579334479-ec171871a550.avif',
+        image: '/assets/images/mukhteshwar.avif',
         desc: 'Panoramic views of the high peaks'
     },
   ];

@@ -27,7 +27,7 @@ export function Hero({ onBookNow, flow }: HeroProps) {
         className="absolute inset-0 z-0"
       >
         <ImageWithFallback
-          src="https://i.ibb.co/WvQLKZcN/Gemini-Generated-Image-aaxewtaaxewtaaxe.png"
+          src="/assets/images/Gemini_Generated_Image_aaxewtaaxewtaaxe.png"
           alt="Khurpatal Lake Inn Ethereal View"
           className="w-full h-full object-cover"
         />

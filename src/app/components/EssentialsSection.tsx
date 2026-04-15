@@ -124,8 +124,8 @@ export function EssentialsSection() {
 
              <div className="relative rounded-[4rem] overflow-hidden border-8 border-white shadow-2xl h-[600px] group">
                 <ImageWithFallback
-                  src="https://i.ibb.co/MkphPXbC/photo-1683973200791-47539048cf63.avif"
-                  alt="Lake Khurpatal reflection"
+                  src="/assets/images/caption (7).jpg"
+                  alt="Khurpatal Lake Inn Heritage Exterior"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -133,7 +133,7 @@ export function EssentialsSection() {
                 {/* Minimal Overlay Badge */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-xl px-6 py-3 rounded-full shadow-lg border border-white flex items-center gap-3">
                    <ImageIcon size={16} className="text-amber-500" />
-                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#434021]">Lake Reflection</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#434021]">Heritage Exterior</span>
                 </div>
              </div>
           </motion.div>

@@ -8,37 +8,37 @@ export function Gallery() {
 
   const images = [
     {
-      url: 'https://i.ibb.co/tM4g1m0H/In-Shot-20240726-2246565361-scaled.jpg',
+      url: '/assets/images/InShot_20240726_2246565361-scaled.jpg',
       title: 'Grand Manor Dusk',
       span: 'lg:col-span-2 lg:row-span-2'
     },
     {
-      url: 'https://i.ibb.co/YBszTZ1b/caption-13.jpg',
+      url: '/assets/images/caption (13).jpg',
       title: 'Lake Reflections',
       span: 'lg:col-span-1 lg:row-span-1'
     },
     {
-      url: 'https://i.ibb.co/TqN8jQpQ/caption-14.jpg',
+      url: '/assets/images/caption (14).jpg',
       title: 'Mountain Pulse',
       span: 'lg:col-span-1 lg:row-span-1'
     },
     {
-      url: 'https://i.ibb.co/yc5ttD7m/2025-12-24-2.jpg',
+      url: '/assets/images/2025-12-24 (2).jpg',
       title: 'Heritage Welcome',
       span: 'lg:col-span-1 lg:row-span-2'
     },
     {
-      url: 'https://i.ibb.co/HDSQfrLn/IMG-2690-1-scaled.jpg',
+      url: '/assets/images/IMG_2690-1-scaled.jpg',
       title: 'Secluded Sanctuary',
       span: 'lg:col-span-1 lg:row-span-1'
     },
     {
-      url: 'https://i.ibb.co/HvHxtnH/IMG-2742-1-scaled.jpg',
+      url: '/assets/images/IMG_2742-1-scaled.jpg',
       title: 'Bespoke Comfort',
       span: 'lg:col-span-2 lg:row-span-1'
     },
     {
-      url: 'https://i.ibb.co/SwXdMQ3m/IMG20240725112848-scaled.jpg',
+      url: '/assets/images/IMG20240725112848-scaled.jpg',
       title: 'Terrace Views',
       span: 'lg:col-span-1 lg:row-span-1'
     },

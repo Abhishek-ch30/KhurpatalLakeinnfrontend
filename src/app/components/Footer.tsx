@@ -33,7 +33,7 @@ export function Footer({ onContactConcierge }: { onContactConcierge?: () => void
           className="mb-16 flex flex-col items-center relative z-20"
         >
           <img 
-            src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png" 
+            src="/assets/images/cropped-Untitled_design_7-SdfZIicur-transformed-transformed.png" 
             alt="Khurpatal Lake Inn" 
             className="h-20 md:h-24 w-auto object-contain mb-8 drop-shadow-2xl"
           />
