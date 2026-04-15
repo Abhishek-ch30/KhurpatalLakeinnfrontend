@@ -17,6 +17,7 @@ import { WellnessSection } from '../../components/WellnessSection';
 import { LocationSection } from '../../components/LocationSection';
 import { FAQSection } from '../../components/FAQSection';
 import { Footer } from '../../components/Footer';
+import { InstagramSection } from '../../components/InstagramSection';
 import { MyBookingsModal } from '../../components/MyBookingsModal';
 import { useBookingFlow } from '../../hooks/useBookingFlow';
 import { BookingFlowModal } from '../../components/booking/BookingFlowModal';
@@ -71,6 +72,7 @@ export function LandingPage() {
       <LocationSection />
       <Experiences />
       <Gallery />
+      <InstagramSection />
       <Testimonials />
       <FAQSection onContactConcierge={() => setIsChatOpen(true)} />
       <div id="contact">

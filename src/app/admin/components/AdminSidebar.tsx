@@ -39,13 +39,14 @@ export const AdminSidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }
   return (
     <div className="w-64 h-screen bg-[#0F172A] text-slate-300 flex flex-col border-r border-slate-800">
       <div className="p-6">
-        <h1 className="text-xl font-bold text-white tracking-wider flex items-center gap-2">
-          <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center">
-            <span className="text-black font-black text-xs">KLI</span>
-          </div>
-          KHURPATAL
-        </h1>
-        <p className="text-[10px] text-amber-500/70 font-semibold mt-1 tracking-[0.2em] uppercase">Admin Console</p>
+        <div className="flex flex-col items-center mb-4">
+          <img 
+            src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png" 
+            alt="Khurpatal Lake Inn" 
+            className="h-16 w-auto object-contain brightness-0 invert"
+          />
+        </div>
+        <p className="text-[10px] text-amber-500/70 font-semibold mt-1 tracking-[0.2em] uppercase text-center">Admin Console</p>
       </div>
 
       <nav className="flex-1 px-4 py-2 space-y-1 overflow-y-auto">

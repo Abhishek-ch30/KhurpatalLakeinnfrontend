@@ -1,25 +1,34 @@
-import { motion } from 'motion/react';
-import { Mountain, Heart, MapPin, Compass, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+import { Mountain, Heart, MapPin, Compass, ArrowRight, Sparkles } from 'lucide-react';
 
 export function WhyKhurpatal() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const scrollX = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
   const benefits = [
     {
       icon: Heart,
       title: 'Peaceful Location',
       description: "Away from the hustle of city life, immerse yourself in nature's absolute tranquility.",
-      color: '#C6A75E',
+      offset: 0
     },
     {
       icon: Mountain,
       title: 'Less Crowded',
-      description: 'Unlike Nainital, enjoy an intimate experience without the overwhelming tourist crowds.',
-      color: '#434021',
+      description: 'Unlike Nainital, enjoy an intimate experience without the tourist crowds.',
+      offset: 40
     },
     {
       icon: MapPin,
       title: 'Scenic Surroundings',
-      description: 'Breathtaking lake and mountain views visible from every corner of our lush property.',
-      color: '#D1D57E',
+      description: 'Breathtaking lake and mountain views visible from every corner of our property.',
+      offset: -20
     },
   ];
 
@@ -51,8 +60,8 @@ export function WhyKhurpatal() {
   ];
 
   return (
-    <section id="why-khurpatal" className="py-32 px-6 lg:px-12 bg-[#FBF6EE] relative overflow-hidden">
-      {/* Dynamic Topographical Background */}
+    <section id="why-khurpatal" ref={containerRef} className="py-32 px-6 lg:px-12 bg-[#FBF6EE] relative overflow-hidden">
+      {/* Topographical Background - PRESERVED */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -66,100 +75,112 @@ export function WhyKhurpatal() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#C6A75E] text-xs font-black uppercase tracking-[0.4em] mb-4 block"
-            >
-              The Khurpatal Essence
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold text-[#434021] leading-tight" 
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Why Choose
-              <br />
-              Khurpatal Lake Inn?
-            </motion.h2>
-          </div>
-          <div className="text-right">
-             <motion.p 
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               transition={{ delay: 0.2 }}
-               viewport={{ once: true }}
-               className="text-[#434021]/60 text-lg max-w-sm ml-auto"
-             >
-                Beyond standard hospitality, we offer a doorway to the untouched soul of the Kumaon hills.
-             </motion.p>
-          </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Centered Editorial Header */}
+        <div className="text-center mb-24 max-w-4xl mx-auto">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-amber-600 text-xs font-black uppercase tracking-[0.5em] mb-6 block"
+          >
+            The Khurpatal Essence
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[2.75rem] sm:text-6xl lg:text-8xl text-[#434021] leading-[1] tracking-tighter mb-8 md:mb-10" 
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            Why Choose<br />
+            <span className="italic">Khurpatal Lake Inn?</span>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-base md:text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto border-t border-amber-500/10 pt-8"
+          >
+            Beyond standard hospitality, we offer a doorway to the untouched soul of the <br />
+            <span className="block text-center w-full mt-2 text-amber-600 italic">Kumaon hills</span>
+          </motion.p>
         </div>
 
-        {/* Precision Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+        {/* Benefits Mosaic - Re-aligned for Perfection */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-24 md:mb-48 items-center">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group relative bg-white border border-slate-100 rounded-[3rem] p-12 hover:shadow-2xl transition-all duration-500"
+              className="group relative bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 transition-all duration-700 shadow-sm hover:shadow-2xl hover:bg-white overflow-hidden h-full flex flex-col justify-between"
             >
-              <div className="w-16 h-16 bg-[#FBF6EE] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-amber-500 group-hover:text-black transition-colors duration-500 text-[#434021]">
-                <benefit.icon size={32} />
-              </div>
-              <h3 className="text-2xl font-bold text-[#434021] mb-4 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-                {benefit.title}
-              </h3>
-              <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                {benefit.description}
-              </p>
+              {/* Abstract Shape Overlay */}
+              <div className="absolute -right-12 -top-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-1000" />
               
-              <div className="absolute top-12 right-12 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Compass className="text-amber-500/20" size={40} />
+              <div>
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 border border-amber-100 text-amber-600 shadow-sm group-hover:bg-[#434021] group-hover:text-amber-500 transition-all duration-700">
+                  <benefit.icon size={32} strokeWidth={1} />
+                </div>
+                <h3 className="text-3xl font-bold text-[#434021] mb-4 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                  {benefit.title}
+                </h3>
+                <p className="text-slate-500 text-sm font-bold leading-relaxed opacity-80">
+                  {benefit.description}
+                </p>
+              </div>
+              
+              <div className="mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600/40 group-hover:text-amber-600 transition-colors">
+                 <span>Essence Detail</span>
+                 <div className="h-px w-8 bg-current" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Visual Attractions Gallery */}
-        <div className="space-y-12">
-            <div className="flex items-center justify-between">
-                <h3 className="text-3xl font-bold text-[#434021] tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>Nearby Attractions</h3>
-                <div className="flex gap-2">
-                    <button className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-white hover:border-[#434021] transition-all"><ArrowRight size={20} className="rotate-180" /></button>
-                    <button className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-white hover:border-[#434021] transition-all"><ArrowRight size={20} /></button>
-                </div>
+        {/* Nearby Gems - Infinite Moving Gallery */}
+        <div className="space-y-16 overflow-hidden">
+            <div className="text-center space-y-4">
+               <h3 className="text-4xl lg:text-6xl font-bold text-[#434021] tracking-tighter" style={{ fontFamily: 'var(--font-heading)' }}>Nearby Gems</h3>
+               <p className="text-xs text-amber-600 font-black uppercase tracking-[0.4em]">Kumaon's curated wonders</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {nearbyPlaces.map((place, index) => (
-                    <motion.div
-                        key={place.name}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className="group relative h-[400px] rounded-[3rem] overflow-hidden cursor-pointer"
-                    >
-                        <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                        
-                        <div className="absolute bottom-8 left-8 right-8">
-                            <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest block mb-2">{place.distance} Away</span>
-                            <h4 className="text-2xl font-bold text-white mb-2 leading-tight">{place.name}</h4>
-                            <p className="text-xs text-white/60 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">{place.desc}</p>
-                        </div>
-                    </motion.div>
-                ))}
+            <div className="relative group">
+               <motion.div 
+                 animate={{ x: ["0%", "-50%"] }}
+                 transition={{ 
+                   duration: 40, 
+                   repeat: Infinity, 
+                   ease: "linear",
+                 }}
+                 className="flex gap-12 w-fit py-12 px-6"
+               >
+                  {/* Duplicate mapping for infinite loop */}
+                  {[...nearbyPlaces, ...nearbyPlaces].map((place, index) => (
+                      <motion.div
+                          key={`${place.name}-${index}`}
+                          className="group/card relative w-[280px] md:w-[400px] h-[400px] md:h-[550px] rounded-[3rem] md:rounded-[4rem] overflow-hidden cursor-pointer border-8 border-white transition-all duration-500 shrink-0"
+                      >
+                          <img src={place.image} alt={place.name} className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-[2s]" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#434021]/90 via-transparent to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity" />
+                          
+                          <div className="absolute bottom-12 left-12 right-12">
+                              <div className="flex items-center gap-3 mb-4">
+                                 <div className="h-1 w-1 bg-amber-500 rounded-full" />
+                                 <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest block">{place.distance} Journey</span>
+                              </div>
+                              <h4 className="text-4xl font-bold text-white mb-4 leading-[1] tracking-tighter" style={{ fontFamily: 'var(--font-heading)' }}>{place.name}</h4>
+                              <p className="text-sm text-white/70 font-bold leading-relaxed max-w-[80%] opacity-0 group-hover/card:opacity-100 transition-all duration-700 translate-y-6 group-hover/card:translate-y-0 italic">
+                                  {place.desc}
+                              </p>
+                          </div>
+                      </motion.div>
+                  ))}
+               </motion.div>
             </div>
         </div>
       </div>

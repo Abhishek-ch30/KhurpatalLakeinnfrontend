@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Cloud, Sun, CloudRain, Wind, Thermometer, MapPin, Sparkles, Coffee, Calendar } from 'lucide-react';
+import { Cloud, Sun, CloudRain, Wind, Thermometer, MapPin, Calendar } from 'lucide-react';
 import { useBookingFlow } from '../hooks/useBookingFlow';
 
 interface WeatherData {
@@ -9,10 +9,6 @@ interface WeatherData {
   humidity: number;
   windSpeed: number;
   suggestion: string;
-}
-
-interface WeatherWidgetProps {
-  flow: ReturnType<typeof useBookingFlow>;
 }
 
 const MOCK_DATA: Record<string, WeatherData> = {
@@ -46,7 +42,7 @@ const MOCK_DATA: Record<string, WeatherData> = {
   }
 };
 
-export function WeatherWidget() {
+export function WeatherWidget({ flow }: { flow: ReturnType<typeof useBookingFlow> }) {
   const [data, setData] = useState<WeatherData>(MOCK_DATA.morning);
   const [activeTab, setActiveTab] = useState<'morning' | 'afternoon' | 'evening' | 'night'>('morning');
 
@@ -57,9 +53,9 @@ export function WeatherWidget() {
   const Icon = data.condition === 'Sunny' ? Sun : data.condition === 'Rainy' ? CloudRain : Cloud;
 
   return (
-    <div className="bg-white/80 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-8 shadow-2xl overflow-hidden relative group">
-       {/* Decorative Gradient */}
-       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all duration-700" />
+    <div className="bg-white/95 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-8 shadow-2xl overflow-hidden relative group">
+       {/* Background Depth Frame */}
+       <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-amber-500/5 to-transparent z-0" />
        
        <div className="relative z-10 flex flex-col gap-8">
           <div className="flex items-center justify-between">
@@ -78,15 +74,15 @@ export function WeatherWidget() {
              </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-2 bg-[#FBF6EE] p-1.5 rounded-2xl border border-amber-500/10">
              {(['morning', 'afternoon', 'evening', 'night'] as const).map(tab => (
                 <button
                    key={tab}
                    onClick={() => setActiveTab(tab)}
                    className={`py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${
                       activeTab === tab 
-                        ? 'bg-[#434021] text-white shadow-xl rotate-3' 
-                        : 'bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-600'
+                        ? 'bg-[#434021] text-white shadow-lg' 
+                        : 'text-slate-400 hover:text-amber-600'
                    }`}
                 >
                    {tab}
@@ -97,24 +93,24 @@ export function WeatherWidget() {
           <AnimatePresence mode="wait">
              <motion.div
                 key={activeTab}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                className="bg-amber-50/50 rounded-3xl p-5 border border-amber-100/50 flex gap-4 items-start"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="bg-[#FBF6EE] rounded-3xl p-6 border border-amber-500/10 shadow-sm flex flex-col sm:flex-row gap-5 items-start sm:items-center"
              >
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-amber-600 border border-amber-100 shrink-0">
-                   <Icon size={24} />
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-amber-500 shadow-md border border-amber-100 shrink-0">
+                   <Icon size={28} />
                 </div>
                 <div>
-                   <p className="text-sm font-bold text-slate-700 leading-snug">
+                   <p className="text-sm font-bold text-black leading-snug mb-2">
                       {data.suggestion}
                    </p>
-                   <div className="mt-2 flex items-center gap-3">
-                      <div className="flex items-center gap-1 text-[10px] text-slate-400 font-bold">
-                         <Wind size={12} /> {data.windSpeed} km/h
+                   <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-black uppercase tracking-wider">
+                         <Wind size={12} className="text-amber-500" /> {data.windSpeed} km/h
                       </div>
-                      <div className="flex items-center gap-1 text-[10px] text-slate-400 font-bold">
-                         <Thermometer size={12} /> {data.humidity}% hum
+                      <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-black uppercase tracking-wider">
+                         <Thermometer size={12} className="text-amber-500" /> {data.humidity}% hum
                       </div>
                    </div>
                 </div>
@@ -123,10 +119,10 @@ export function WeatherWidget() {
 
           <button 
             onClick={() => flow.openFlow({}, 'dates')}
-            className="w-full bg-white border border-slate-100 py-4 rounded-2xl flex items-center justify-center gap-3 group/btn hover:border-amber-500 transition-all"
+            className="w-1/2 mx-auto bg-[#434021] text-white py-4 rounded-full flex items-center justify-center gap-3 shadow-xl shadow-[#434021]/20 hover:bg-[#C6A75E] transition-all group"
           >
-             <Calendar size={18} className="text-amber-600 group-hover/btn:rotate-12 transition-transform" />
-             <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 group-hover/btn:text-amber-600">Check Availability</span>
+             <Calendar size={18} className="text-amber-500 group-hover:rotate-12 transition-transform" />
+             <span className="text-[10px] font-black uppercase tracking-widest">Check Availability</span>
           </button>
        </div>
     </div>

@@ -1,5 +1,6 @@
+import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Calendar, MapPin, Navigation } from 'lucide-react';
 
 interface FinalCTAProps {
   onBookNow: () => void;
@@ -7,59 +8,89 @@ interface FinalCTAProps {
 
 export function FinalCTA({ onBookNow }: FinalCTAProps) {
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background with mountain texture or gradient */}
-      <div className="absolute inset-0 bg-[#434021] z-0">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#2a2814] to-transparent"></div>
+    <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-[#434021]">
+      {/* Cinematic Parallax Backdrop */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          initial={{ scale: 1.1 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+           <div className="absolute inset-0 bg-black/40 z-10" />
+           <img 
+             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80" 
+             alt="Himalayan Horizon" 
+             className="w-full h-full object-cover grayscale-[20%] contrast-[1.1]"
+           />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#434021] via-transparent to-[#434021] z-20" />
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+      {/* The Inevitable Horizon Content */}
+      <div className="max-w-6xl mx-auto px-6 text-center relative z-30">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          transition={{ duration: 1 }}
         >
-          <div className="flex items-center justify-center gap-2">
-            <Sparkles className="text-amber-500" size={20} />
-            <span className="text-amber-500/80 text-xs font-black uppercase tracking-[0.5em]">Limited Availability</span>
+          {/* Availability Pulse Badge */}
+          <div className="flex justify-center mb-12">
+             <motion.div 
+               animate={{ scale: [1, 1.05, 1] }}
+               transition={{ duration: 4, repeat: Infinity }}
+               className="inline-flex items-center gap-3 px-6 py-2 backdrop-blur-3xl bg-white/5 border border-white/10 rounded-full"
+             >
+                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
+                <span className="text-white tracking-[0.4em] text-[10px] font-black uppercase">Availability: Strictly Limited</span>
+             </motion.div>
           </div>
-          
-          <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-[0.9]" style={{ fontFamily: 'var(--font-heading)' }}>
-            Your Himalayan
-            <br />
-            Legacy Begins Now
+
+          <h2 className="text-[2.75rem] md:text-9xl text-white leading-[0.9] tracking-tighter mb-8 md:mb-12" style={{ fontFamily: 'var(--font-heading)' }}>
+            Your Himalayan <br />
+            <span className="italic text-amber-500">Legacy</span> Begins.
           </h2>
           
-          <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Don't just witness the beauty of Khurpatal—become a part of its story. Secure your sanctuary between the peaks today.
+          <p className="text-white/60 text-lg md:text-2xl max-w-2xl mx-auto font-medium leading-[1.4] mb-12 md:mb-16 border-t border-white/10 pt-8 md:pt-12">
+            Don't just witness the beauty of Khurpatal—become a part of its story. Secure your place between the peaks.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
             <button
               onClick={onBookNow}
-              className="px-12 py-5 bg-amber-500 text-black rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-white transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-black/20 flex items-center gap-3 transition-colors group"
+              className="w-full md:w-auto px-10 md:px-16 py-5 md:py-7 bg-amber-500 text-[#434021] rounded-full font-black uppercase tracking-[0.3em] text-[9px] md:text-[10px] hover:bg-white transition-all shadow-2xl flex items-center justify-center gap-4 group relative overflow-hidden active:scale-95"
             >
-              Secure My Stay
-              <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+              <span className="relative z-10">Secure My Stay</span>
+              <ArrowRight size={16} className="relative z-10 group-hover:translate-x-3 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </button>
+            
             <button
-              className="px-12 py-5 bg-transparent text-white border-2 border-white/20 rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-white/5 transition-all"
+              className="w-full md:w-auto px-10 md:px-16 py-5 md:py-7 bg-transparent text-white border border-white/20 rounded-full font-black uppercase tracking-[0.3em] text-[9px] md:text-[10px] hover:bg-white/5 transition-all flex items-center justify-center gap-4 active:scale-95"
             >
               Contact Concierge
+              <Navigation size={16} className="opacity-40" />
             </button>
           </div>
           
-          <p className="text-white/30 text-[10px] uppercase font-black tracking-[0.4em] pt-12">
-            Experience Perfection • Uttarakhand • India
-          </p>
+          <div className="flex items-center justify-center gap-12 mt-24 opacity-20">
+             <div className="flex items-center gap-3">
+                <MapPin size={14} />
+                <span className="text-[10px] uppercase tracking-[0.4em] font-black">Uttarakhand</span>
+             </div>
+             <div className="w-1.5 h-1.5 bg-white rounded-full opacity-20" />
+             <div className="flex items-center gap-3">
+                <Calendar size={14} />
+                <span className="text-[10px] uppercase tracking-[0.4em] font-black">Open Year Round</span>
+             </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-500/20 blur-[120px] rounded-full" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 blur-[120px] rounded-full" />
+      {/* Signature Accents */}
+      <div className="absolute top-20 left-20 w-32 h-32 border-t border-l border-white/10 rounded-tl-[4rem] pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-32 h-32 border-b border-r border-white/10 rounded-br-[4rem] pointer-events-none" />
     </section>
   );
 }

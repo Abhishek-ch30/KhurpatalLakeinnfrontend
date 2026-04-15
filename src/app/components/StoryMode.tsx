@@ -72,25 +72,29 @@ export function StoryMode() {
     }
   };
 
-  const handleCTA = () => {
+  const handleClose = () => {
     setIsOpen(false);
     localStorage.setItem('hasSeenStory', 'true');
+  };
+
+  const handleCTA = () => {
+    handleClose();
     openFlow();
   };
 
   return (
     <>
-      <div className="fixed bottom-8 left-8 z-[100]">
+      <div className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[100]">
          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="bg-[#0F172A] text-white p-5 rounded-3xl shadow-2xl flex items-center gap-4 overflow-hidden group hover:bg-black transition-all border border-white/10"
+            className="bg-[#0F172A] text-white p-3.5 md:p-5 rounded-[1.5rem] md:rounded-3xl shadow-2xl flex items-center gap-3 md:gap-4 overflow-hidden group hover:bg-black transition-all border border-white/10"
          >
-            <div className="w-8 h-8 bg-amber-500 rounded-xl flex items-center justify-center text-black shadow-lg group-hover:rotate-12 transition-transform">
-               <Play className="fill-current ml-0.5" size={14} />
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-amber-500 rounded-lg md:rounded-xl flex items-center justify-center text-black shadow-lg group-hover:rotate-12 transition-transform">
+               <Play className="fill-current ml-0.5" size={10} />
             </div>
-            <span className="font-bold text-[10px] uppercase tracking-[0.2em] hidden md:block">Relive the Story</span>
+            <span className="font-bold text-[9px] md:text-[10px] uppercase tracking-[0.2em] hidden sm:block">Relive the Story</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
          </motion.button>
       </div>
@@ -118,6 +122,20 @@ export function StoryMode() {
               </div>
             ))}
 
+            {/* Instagram Style Tap Regions */}
+            <div className="absolute inset-0 z-10 flex">
+               <div 
+                 onClick={prev}
+                 className="w-[30%] h-full cursor-none pointer-events-auto"
+                 title="Previous Scene"
+               />
+               <div 
+                 onClick={currentScene === SCENES.length - 1 ? (e) => { e.stopPropagation(); /* Prevent accidental CTA jump */ } : next}
+                 className="w-[70%] h-full cursor-none pointer-events-auto"
+                 title="Next Scene"
+               />
+            </div>
+
             {/* Header Controls */}
             <div className="absolute top-0 inset-x-0 p-8 flex items-center justify-between z-20">
                <div className="flex items-center gap-4">
@@ -131,7 +149,7 @@ export function StoryMode() {
                   <button onClick={() => setIsMuted(!isMuted)} className="p-3 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
                      {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                   </button>
-                  <button onClick={() => setIsOpen(false)} className="p-3 bg-white/10 rounded-2xl hover:bg-white/20 transition-all text-amber-500">
+                  <button onClick={handleClose} className="p-3 bg-white/10 rounded-2xl hover:bg-white/20 transition-all text-amber-500">
                      <X size={20} />
                   </button>
                </div>

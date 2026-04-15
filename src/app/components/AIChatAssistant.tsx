@@ -176,15 +176,15 @@ export function AIChatAssistant({ flow, isOpen, setIsOpen }: AIChatAssistantProp
 
   return (
     <>
-      <div className="fixed bottom-8 right-8 z-[100]">
+      <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100]">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(true)}
-          className="bg-[#434021] text-white p-5 rounded-3xl flex items-center gap-3 overflow-hidden group hover:bg-black transition-all"
+          className="bg-[#434021] text-white p-3.5 md:p-5 rounded-[1.5rem] md:rounded-3xl flex items-center gap-2 md:gap-3 overflow-hidden group hover:bg-black transition-all"
         >
-          <Sparkles className="group-hover:rotate-12 transition-transform" />
-          <span className="font-bold text-xs uppercase tracking-[0.2em] hidden md:block">Plan Your Stay</span>
+          <Sparkles className="group-hover:rotate-12 transition-transform scale-75 md:scale-100" />
+          <span className="font-bold text-[9px] md:text-xs uppercase tracking-[0.2em] hidden sm:block">Plan Your Stay</span>
         </motion.button>
       </div>
 
@@ -194,7 +194,7 @@ export function AIChatAssistant({ flow, isOpen, setIsOpen }: AIChatAssistantProp
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            className="fixed bottom-28 right-8 w-[90vw] md:w-[420px] h-[640px] bg-[#FBF6EE]/95 backdrop-blur-2xl border border-white/40 rounded-[2.5rem] shadow-2xl z-[101] flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-4 md:bottom-28 md:right-8 w-[92vw] md:w-[420px] h-[75vh] md:h-[640px] bg-[#FBF6EE]/95 backdrop-blur-2xl border border-white/40 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl z-[101] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-6 bg-[#434021] text-white flex items-center justify-between">

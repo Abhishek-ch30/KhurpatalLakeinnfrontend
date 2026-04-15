@@ -36,27 +36,36 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#FBF6EE]/95 backdrop-blur-xl shadow-lg border-b border-[#434021]/10'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-[100] px-6 pt-4 pointer-events-none"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+      <div 
+        className={`max-w-[1400px] mx-auto transition-all duration-500 rounded-full pointer-events-auto relative z-[120] ${
+          scrolled
+            ? 'bg-[#FBF6EE] shadow-2xl border border-[#434021]/10 px-6 md:px-8 py-2 md:py-3 translate-y-0'
+            : 'bg-black/20 backdrop-blur-md border border-white/10 px-6 md:px-10 py-3 md:py-4 translate-y-1 md:translate-y-2'
+        }`}
+      >
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#home"
-            className="relative z-10"
-            whileHover={{ scale: 1.05 }}
+            className="relative z-10 flex items-center gap-4"
+            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <h1 className="text-2xl lg:text-3xl font-bold text-[#434021]" style={{ fontFamily: 'var(--font-heading)' }}>
-              Khurpatal Lake Inn
-            </h1>
-            <p className="text-xs text-[#C6A75E] tracking-widest leading-none mt-1" style={{ fontFamily: 'var(--font-body)' }}>
-              UTTARAKHAND
-            </p>
+            <img 
+              src="https://i.ibb.co/HTd5P112/cropped-Untitled-design-7-Sdf-ZIicur-transformed-transformed.png"
+              alt="Khurpatal Lake Inn"
+              className={`h-8 md:h-14 w-auto object-contain transition-all duration-300 drop-shadow-sm ${!scrolled ? 'brightness-110' : ''}`}
+            />
+            <div className="flex flex-col">
+              <h1 className={`text-sm md:text-xl font-bold transition-colors duration-300 ${scrolled ? 'text-[#434021]' : 'text-white drop-shadow-md'}`} style={{ fontFamily: 'var(--font-heading)' }}>
+                Khurpatal Lake Inn
+              </h1>
+              <p className={`text-[8px] md:text-[10px] tracking-[0.3em] leading-none mt-1 transition-colors duration-300 ${scrolled ? 'text-[#C6A75E]' : 'text-white/80 drop-shadow-md'}`} style={{ fontFamily: 'var(--font-body)' }}>
+                UTTARAKHAND
+              </p>
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -65,11 +74,13 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-[#434021] hover:text-[#C6A75E] transition-colors duration-300 font-medium relative group text-sm uppercase tracking-widest"
+                className={`transition-colors duration-300 font-medium relative group text-sm uppercase tracking-widest ${
+                  scrolled ? 'text-[#434021] hover:text-[#C6A75E]' : 'text-white/90 hover:text-white'
+                }`}
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C6A75E] group-hover:w-full transition-all duration-300"></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 ${scrolled ? 'bg-[#C6A75E]' : 'bg-white'} group-hover:w-full`}></span>
               </motion.a>
             ))}
 
@@ -77,7 +88,11 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
               <div className="relative">
                 <button 
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="flex items-center gap-3 bg-[#434021] text-[#FBF6EE] pl-1.5 pr-4 py-1.5 rounded-full hover:bg-black transition-all shadow-lg"
+                  className={`flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full transition-all shadow-lg ${
+                    scrolled 
+                      ? 'bg-[#434021] text-[#FBF6EE] hover:bg-black' 
+                      : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md border border-white/20'
+                  }`}
                 >
                   <div className="w-8 h-8 rounded-full bg-amber-500 text-black flex items-center justify-center font-black text-xs uppercase">
                     {user?.name?.[0]}
@@ -108,7 +123,11 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
             ) : (
               <motion.button
                 onClick={onBookNow}
-                className="px-8 py-3 bg-[#434021] text-[#FBF6EE] rounded-full hover:bg-[#C6A75E] hover:text-[#434021] transition-all duration-300 font-bold shadow-lg text-sm uppercase tracking-widest"
+                className={`px-8 py-3 rounded-full transition-all duration-300 font-bold shadow-lg text-sm uppercase tracking-widest ${
+                  scrolled 
+                    ? 'bg-[#434021] text-[#FBF6EE] hover:bg-[#C6A75E] hover:text-[#434021]' 
+                    : 'bg-white text-[#434021] hover:bg-white/90 shadow-white/10'
+                }`}
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Book Now
@@ -119,9 +138,9 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-[#434021] z-[110]"
+            className={`lg:hidden relative z-[130] p-2 -mr-2 transition-colors duration-300 ${mobileMenuOpen ? 'text-[#434021]' : scrolled ? 'text-[#434021]' : 'text-white'}`}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={32} strokeWidth={2.5} /> : <Menu size={28} />}
           </button>
         </div>
       </div>

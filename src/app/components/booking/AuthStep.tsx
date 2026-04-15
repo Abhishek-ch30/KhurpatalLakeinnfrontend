@@ -183,12 +183,24 @@ export function AuthStep({ flow }: { flow: ReturnType<typeof useBookingFlow> }) 
         {subStep === 'otp' && (
             <form onSubmit={verifyOtp} className="space-y-8">
                 <div className="space-y-6 text-center">
-                  <div className="flex justify-center gap-3 otp-container transition-all rounded-2xl p-2">
-                    {[0,1,2,3,4,5].map((i) => (
-                        <div key={i} className={`w-12 h-14 rounded-2xl border-2 flex items-center justify-center text-xl font-black transition-all ${formData.otp[i] ? 'border-amber-500 bg-amber-50 text-amber-600' : 'border-slate-100 bg-white shadow-inner'}`}>
-                            {formData.otp[i] || ''}
-                        </div>
-                    ))}
+                  <div className="flex justify-center gap-3 transition-all rounded-2xl p-2">
+                    {[0,1,2,3,4,5].map((i) => {
+                        const isActive = i === formData.otp.length;
+                        return (
+                            <div 
+                                key={i} 
+                                className={`w-12 h-14 rounded-2xl border-2 flex items-center justify-center text-xl font-black transition-all ${
+                                    formData.otp[i] 
+                                        ? 'border-[#434021] bg-amber-50 text-[#434021]' 
+                                        : isActive 
+                                            ? 'border-amber-500 ring-4 ring-amber-500/20 bg-white' 
+                                            : 'border-[#434021]/20 bg-white'
+                                }`}
+                            >
+                                {formData.otp[i] || ''}
+                            </div>
+                        );
+                    })}
                   </div>
                   <input 
                     type="text" 
@@ -196,9 +208,7 @@ export function AuthStep({ flow }: { flow: ReturnType<typeof useBookingFlow> }) 
                     autoFocus
                     className="absolute inset-0 opacity-0 cursor-default"
                     value={formData.otp}
-                    onChange={(e) => setFormData({...formData, otp: e.target.value})}
-                    onFocus={(e) => e.target.parentElement?.querySelector('.otp-container')?.classList.add('ring-4', 'ring-amber-500/20')}
-                    onBlur={(e) => e.target.parentElement?.querySelector('.otp-container')?.classList.remove('ring-4', 'ring-amber-500/20')}
+                    onChange={(e) => setFormData({...formData, otp: e.target.value.replace(/[^0-9]/g, '')})}
                     required
                   />
                   <div className="flex flex-col gap-2">
