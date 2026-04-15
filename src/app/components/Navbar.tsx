@@ -153,7 +153,7 @@ export function Navbar({ onMyBookingsClick, onBookNow }: NavbarProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed inset-0 w-full h-[100dvh] bg-[#FBF6EE] z-[105] pt-32 px-10 flex flex-col"
+            className="lg:hidden fixed inset-0 w-full h-[100dvh] bg-[#FBF6EE] z-[105] pt-32 px-10 flex flex-col pointer-events-auto"
           >
             <div className="flex flex-col gap-8">
               {navLinks.map((link, i) => (
