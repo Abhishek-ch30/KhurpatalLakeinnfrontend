@@ -121,9 +121,6 @@ export function LocationSection() {
                ))}
             </div>
 
-           {/* 4-Corner Signature Accents */}
-           <div className="absolute -top-10 -right-10 w-48 h-48 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[5.5rem] pointer-events-none" />
-           <div className="absolute -bottom-10 -left-10 w-48 h-48 border-b-2 border-l-2 border-amber-500/20 rounded-bl-[5.5rem] pointer-events-none" />
         </div>
 
         {/* Centered Navigation Anchors */}

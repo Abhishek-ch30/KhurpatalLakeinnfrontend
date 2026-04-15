@@ -90,9 +90,6 @@ export function FinalCTA({ onBookNow }: FinalCTAProps) {
         </motion.div>
       </div>
 
-      {/* Signature Accents */}
-      <div className="absolute top-8 left-8 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 border-t border-l border-white/10 rounded-tl-[2rem] md:rounded-tl-[4rem] pointer-events-none" />
-      <div className="absolute bottom-8 right-8 md:bottom-20 md:right-20 w-16 h-16 md:w-32 md:h-32 border-b border-r border-white/10 rounded-br-[2rem] md:rounded-br-[4rem] pointer-events-none" />
     </section>
   );
 }

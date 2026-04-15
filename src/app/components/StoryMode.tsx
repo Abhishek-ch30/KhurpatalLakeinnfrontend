@@ -122,22 +122,22 @@ export function StoryMode() {
               </div>
             ))}
 
-            {/* Instagram Style Tap Regions */}
-            <div className="absolute inset-0 z-10 flex">
+            {/* Instagram Style Tap Regions - High Z-Index for Mobile */}
+            <div className="absolute inset-0 z-40 flex">
                <div 
                  onClick={prev}
                  className="w-[30%] h-full cursor-none pointer-events-auto"
                  title="Previous Scene"
                />
                <div 
-                 onClick={currentScene === SCENES.length - 1 ? (e) => { e.stopPropagation(); /* Prevent accidental CTA jump */ } : next}
+                 onClick={currentScene === SCENES.length - 1 ? (e) => { e.stopPropagation(); } : next}
                  className="w-[70%] h-full cursor-none pointer-events-auto"
                  title="Next Scene"
                />
             </div>
 
             {/* Header Controls */}
-            <div className="absolute top-0 inset-x-0 p-8 flex items-center justify-between z-20">
+            <div className="absolute top-0 inset-x-0 p-8 flex items-center justify-between z-50">
                <div className="flex items-center gap-4">
                   <div className="h-10 w-px bg-white/20" />
                   <div>
@@ -155,8 +155,8 @@ export function StoryMode() {
                </div>
             </div>
 
-            {/* Content Center */}
-            <div className="relative z-10 max-w-4xl px-8 text-center mt-20">
+            {/* Content Center - Pointer Events None to allow taps behind */}
+            <div className="relative z-10 max-w-4xl px-8 text-center mt-20 pointer-events-none">
                <AnimatePresence mode="wait">
                   <motion.div
                     key={currentScene}
