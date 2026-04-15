@@ -117,13 +117,13 @@ export function WhyKhurpatal() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group relative bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 transition-all duration-700 shadow-sm hover:shadow-2xl hover:bg-white overflow-hidden h-full flex flex-col justify-between"
+              className="group relative bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-12 transition-all duration-700 shadow-sm hover:shadow-2xl hover:bg-white overflow-hidden h-full flex flex-col items-center text-center justify-between"
             >
               {/* Abstract Shape Overlay */}
               <div className="absolute -right-12 -top-12 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-1000" />
               
               <div>
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 border border-amber-100 text-amber-600 shadow-sm group-hover:bg-[#434021] group-hover:text-amber-500 transition-all duration-700">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 border border-amber-100 text-amber-600 shadow-sm group-hover:bg-[#434021] group-hover:text-amber-500 transition-all duration-700 mx-auto">
                   <benefit.icon size={32} strokeWidth={1} />
                 </div>
                 <h3 className="text-3xl font-bold text-[#434021] mb-4 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
@@ -134,7 +134,8 @@ export function WhyKhurpatal() {
                 </p>
               </div>
               
-              <div className="mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600/40 group-hover:text-amber-600 transition-colors">
+              <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-widest text-amber-600/40 group-hover:text-amber-600 transition-colors">
+                 <div className="h-px w-8 bg-current" />
                  <span>Essence Detail</span>
                  <div className="h-px w-8 bg-current" />
               </div>

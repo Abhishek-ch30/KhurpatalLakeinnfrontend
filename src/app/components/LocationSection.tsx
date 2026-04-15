@@ -88,38 +88,38 @@ export function LocationSection() {
            </motion.div>
 
            {/* Floating Transport Petals - Symmetrical Glass Grid Overlay */}
-           <div className="relative mt-12 md:absolute md:-bottom-16 md:left-1/2 md:-translate-x-1/2 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-0 md:px-6">
-              {travelModes.map((item, idx) => (
-                <motion.div
-                  key={item.mode}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + (idx * 0.1) }}
-                  className="p-8 md:p-10 bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.05)] group hover:bg-white md:hover:-translate-y-2 transition-all duration-500"
-                >
-                   <div className="relative mb-8 w-14 h-14">
-                      <div className="absolute inset-0 bg-amber-500/10 rounded-2xl rotate-6 group-hover:rotate-12 group-hover:bg-amber-500 transition-all duration-700" />
-                      <div className="absolute inset-0 bg-white shadow-md rounded-2xl flex items-center justify-center text-[#434021] group-hover:scale-110 group-hover:text-amber-900 transition-transform duration-500">
-                         {item.icon}
-                      </div>
-                   </div>
-                   <h3 className="text-2xl font-bold text-[#434021] mb-2 tracking-tight flex items-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
-                      {item.mode}
-                      <div className="w-1.5 h-1.5 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                   </h3>
-                   <p className="text-slate-500 text-xs font-bold leading-relaxed mb-6 italic opacity-70 group-hover:opacity-100 transition-opacity">{item.description}</p>
-                   
-                   <div className="flex flex-wrap gap-2 pt-6 border-t border-amber-500/10">
-                      {item.links.map(link => (
-                        <span key={link} className="px-3 py-1.5 bg-white border border-amber-500/10 rounded-full text-[8px] font-black uppercase tracking-widest text-amber-700 shadow-sm">
-                           {link}
-                        </span>
-                      ))}
-                   </div>
-                </motion.div>
-              ))}
-           </div>
+            <div className="relative mt-12 md:absolute md:-bottom-16 md:left-1/2 md:-translate-x-1/2 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-0 md:px-6">
+               {travelModes.map((item, idx) => (
+                 <motion.div
+                   key={item.mode}
+                   initial={{ opacity: 0, y: 40 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: 0.2 + (idx * 0.1) }}
+                   className="p-8 md:p-10 bg-[#FBF6EE] border border-amber-500/10 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.05)] group hover:bg-white md:hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center"
+                 >
+                    <div className="relative mb-8 w-14 h-14 mx-auto">
+                       <div className="absolute inset-0 bg-amber-500/10 rounded-2xl rotate-6 group-hover:rotate-12 group-hover:bg-amber-500 transition-all duration-700" />
+                       <div className="absolute inset-0 bg-white shadow-md rounded-2xl flex items-center justify-center text-[#434021] group-hover:scale-110 group-hover:text-amber-900 transition-transform duration-500">
+                          {item.icon}
+                       </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#434021] mb-2 tracking-tight flex items-center justify-center gap-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                       {item.mode}
+                       <div className="w-1.5 h-1.5 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h3>
+                    <p className="text-slate-500 text-xs font-bold leading-relaxed mb-6 italic opacity-70 group-hover:opacity-100 transition-opacity">{item.description}</p>
+                    
+                    <div className="flex flex-wrap justify-center gap-2 pt-6 border-t border-amber-500/10 w-full">
+                       {item.links.map(link => (
+                         <span key={link} className="px-3 py-1.5 bg-white border border-amber-500/10 rounded-full text-[8px] font-black uppercase tracking-widest text-amber-700 shadow-sm">
+                            {link}
+                         </span>
+                       ))}
+                    </div>
+                 </motion.div>
+               ))}
+            </div>
 
            {/* 4-Corner Signature Accents */}
            <div className="absolute -top-10 -right-10 w-48 h-48 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[5.5rem] pointer-events-none" />

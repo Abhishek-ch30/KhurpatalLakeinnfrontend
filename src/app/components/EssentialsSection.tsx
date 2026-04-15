@@ -116,13 +116,13 @@ export function EssentialsSection() {
             viewport={{ once: true }}
             className="relative"
           >
-             {/* 4-Corner Signature Accents */}
-             <div className="absolute -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[3.5rem]" />
-             <div className="absolute -bottom-6 -left-6 w-24 h-24 border-b-2 border-l-2 border-amber-500/20 rounded-bl-[3.5rem]" />
-             <div className="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-amber-500/20 rounded-tl-[3.5rem]" />
-             <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b-2 border-r-2 border-amber-500/20 rounded-br-[3.5rem]" />
+             {/* 4-Corner Signature Accents - Hidden on mobile to prevent overflow */}
+             <div className="hidden md:block absolute -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-amber-500/20 rounded-tr-[3.5rem]" />
+             <div className="hidden md:block absolute -bottom-6 -left-6 w-24 h-24 border-b-2 border-l-2 border-amber-500/20 rounded-bl-[3.5rem]" />
+             <div className="hidden md:block absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-amber-500/20 rounded-tl-[3.5rem]" />
+             <div className="hidden md:block absolute -bottom-6 -right-6 w-24 h-24 border-b-2 border-r-2 border-amber-500/20 rounded-br-[3.5rem]" />
 
-             <div className="relative rounded-[4rem] overflow-hidden border-8 border-white shadow-2xl h-[600px] group">
+             <div className="relative rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border-4 md:border-8 border-white shadow-2xl h-[380px] md:h-[500px] lg:h-[600px] group">
                 <ImageWithFallback
                   src="/assets/images/caption (7).jpg"
                   alt="Khurpatal Lake Inn Heritage Exterior"

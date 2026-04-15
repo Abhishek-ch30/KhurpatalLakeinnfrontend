@@ -31,7 +31,7 @@ function MagneticIcon({ children }: MagneticIconProps) {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{ x: mouseX, y: mouseY }}
-      className="relative mb-8 w-24 h-24 cursor-none"
+      className="relative mb-8 w-24 h-24 mx-auto cursor-none"
     >
       <div className="absolute inset-0 bg-[#434021] rounded-[2rem] rotate-6 group-hover:rotate-12 group-hover:bg-amber-500 transition-all duration-700" />
       <div className="absolute inset-0 bg-white/90 backdrop-blur-xl border border-white rounded-[2rem] flex items-center justify-center text-[#434021] shadow-2xl group-hover:scale-110 transition-transform duration-500">
@@ -134,7 +134,7 @@ export function Amenities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`group relative bg-white rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-12 overflow-hidden border border-amber-500/5 hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-700 flex flex-col justify-between
+                className={`group relative bg-white rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-12 overflow-hidden border border-amber-500/5 hover:shadow-2xl hover:shadow-amber-900/5 transition-all duration-700 flex flex-col items-center text-center justify-between
                   ${amenity.size === 'large' ? 'lg:col-span-2' : 'lg:col-span-1'}
                 `}
              >
@@ -147,11 +147,12 @@ export function Amenities() {
                    </MagneticIcon>
 
                    <div className="mb-8">
-                      <div className="flex items-center gap-3 mb-4">
+                      <div className="flex items-center justify-center gap-3 mb-4">
+                         <div className="h-px w-8 bg-amber-500/20" />
                          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber-600/60">{amenity.category}</span>
                          <div className="h-px w-8 bg-amber-500/20" />
                       </div>
-                      <h3 className="text-3xl font-bold text-[#434021] tracking-tight mb-4 group-hover:translate-x-2 transition-transform duration-500" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <h3 className="text-3xl font-bold text-[#434021] tracking-tight mb-4 group-hover:scale-110 transition-transform duration-500" style={{ fontFamily: 'var(--font-heading)' }}>
                          {amenity.title}
                       </h3>
                       <p className={`text-slate-500 font-medium leading-relaxed opacity-80 ${amenity.size === 'large' ? 'text-lg max-w-md' : 'text-sm'}`}>
@@ -160,7 +161,7 @@ export function Amenities() {
                    </div>
                 </div>
 
-                <div className="relative z-10 pt-8 border-t border-amber-500/10 flex items-center justify-between group-hover:border-amber-500/30 transition-colors">
+                <div className="relative z-10 pt-8 border-t border-amber-500/10 flex flex-col items-center gap-3 group-hover:border-amber-500/30 transition-colors w-full">
                    <div className="w-2 h-2 rounded-full bg-amber-500 group-hover:scale-150 transition-transform" />
                    <div className="text-[8px] font-black uppercase tracking-widest text-slate-300 group-hover:text-[#434021] transition-colors">Luxury Standard</div>
                 </div>

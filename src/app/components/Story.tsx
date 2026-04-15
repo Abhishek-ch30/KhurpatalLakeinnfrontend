@@ -50,7 +50,7 @@ export function Story() {
              whileInView={{ opacity: 1, scale: 1 }}
              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
              viewport={{ once: true }}
-             className="relative w-full h-[600px] rounded-[5rem] overflow-hidden shadow-2xl border-8 border-white"
+             className="relative w-full h-[320px] md:h-[480px] lg:h-[600px] rounded-[3rem] md:rounded-[5rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white"
            >
               <ImageWithFallback
                 src="/assets/images/photo-1732510291333-b347b91e20bf.avif"
@@ -102,7 +102,7 @@ export function Story() {
            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-30 bg-[#434021] text-white p-10 rounded-[3rem] shadow-2xl border border-white/10 max-w-[400px] text-center"
+              className="absolute -bottom-10 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-30 bg-[#434021] text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-white/10 md:max-w-[400px] text-center"
            >
               <div className="flex flex-col items-center gap-4">
                  <div className="w-10 h-10 bg-amber-500 text-[#434021] rounded-2xl flex items-center justify-center">

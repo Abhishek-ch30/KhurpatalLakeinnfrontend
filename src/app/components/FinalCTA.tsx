@@ -29,18 +29,13 @@ export function FinalCTA({ onBookNow }: FinalCTAProps) {
       </div>
 
       {/* The Inevitable Horizon Content */}
-      <div className="max-w-6xl mx-auto px-6 text-center relative z-30">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-0 text-center relative z-30">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          {/* The Path to Clarity - Section Bridge */}
-          <div className="flex flex-col items-center gap-4 mb-10 opacity-80">
-             <div className="w-12 h-px bg-[#434021]/20" />
-             <p className="text-[10px] font-black uppercase tracking-[0.6em] text-[#434021]">The Path to Clarity</p>
-          </div>
 
           {/* Availability Pulse Badge - Enhanced Visibility */}
           <div className="flex justify-center mb-12">
@@ -96,8 +91,8 @@ export function FinalCTA({ onBookNow }: FinalCTAProps) {
       </div>
 
       {/* Signature Accents */}
-      <div className="absolute top-20 left-20 w-32 h-32 border-t border-l border-white/10 rounded-tl-[4rem] pointer-events-none" />
-      <div className="absolute bottom-20 right-20 w-32 h-32 border-b border-r border-white/10 rounded-br-[4rem] pointer-events-none" />
+      <div className="absolute top-8 left-8 md:top-20 md:left-20 w-16 h-16 md:w-32 md:h-32 border-t border-l border-white/10 rounded-tl-[2rem] md:rounded-tl-[4rem] pointer-events-none" />
+      <div className="absolute bottom-8 right-8 md:bottom-20 md:right-20 w-16 h-16 md:w-32 md:h-32 border-b border-r border-white/10 rounded-br-[2rem] md:rounded-br-[4rem] pointer-events-none" />
     </section>
   );
 }

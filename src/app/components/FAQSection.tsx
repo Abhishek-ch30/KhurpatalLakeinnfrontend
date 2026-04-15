@@ -163,6 +163,10 @@ export function FAQSection({ onContactConcierge }: { onContactConcierge?: () => 
            </div>
         </motion.div>
         
+        <div className="flex flex-col items-center gap-6 pt-32">
+           <div className="w-12 h-px bg-amber-500/20" />
+           <p className="text-[10px] font-black uppercase tracking-[0.5em] text-amber-600">The Path to Clarity</p>
+        </div>
       </div>
     </section>
   );
