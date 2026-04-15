@@ -4,6 +4,7 @@ import { X, Calendar, Users, CreditCard, Loader2, CheckCircle2, MapPin, Sparkles
 import { api } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
+import { HeroDatePicker } from './booking/HeroDatePicker';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -138,37 +139,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, sel
             <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
                 {step === 1 && (
                   <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-                    <h2 className="text-3xl font-black text-slate-900 tracking-tight mb-2">Reservation Details</h2>
+                    <h2 className="text-3xl font-black text-[#434021] tracking-tight mb-2">Reservation Details</h2>
                     <p className="text-slate-500 font-medium mb-12">Confirm your check-in dates and guest count.</p>
 
                     <div className="space-y-8">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-3">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Check In</label>
-                          <div className="relative group">
-                            <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-amber-500 transition-colors" size={20} />
-                            <input 
-                              type="date" 
-                              className="w-full pl-12 pr-4 py-4 bg-slate-50 border-none rounded-2xl focus:ring-4 focus:ring-amber-500/10 transition-all font-bold text-slate-900" 
-                              value={bookingData.checkIn}
-                              onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})}
-                              min={new Date().toISOString().split('T')[0]}
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-3">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Check Out</label>
-                          <div className="relative group">
-                            <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-amber-500 transition-colors" size={20} />
-                            <input 
-                              type="date" 
-                              className="w-full pl-12 pr-4 py-4 bg-slate-50 border-none rounded-2xl focus:ring-4 focus:ring-amber-500/10 transition-all font-bold text-slate-900" 
-                              value={bookingData.checkOut}
-                              onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})}
-                              min={bookingData.checkIn || new Date().toISOString().split('T')[0]}
-                            />
-                          </div>
-                        </div>
+                        <HeroDatePicker
+                          label="Check In"
+                          date={bookingData.checkIn}
+                          onSelect={(date) => setBookingData({...bookingData, checkIn: date})}
+                        />
+                        <HeroDatePicker
+                          label="Check Out"
+                          date={bookingData.checkOut}
+                          onSelect={(date) => setBookingData({...bookingData, checkOut: date})}
+                          minDate={bookingData.checkIn ? new Date(bookingData.checkIn) : undefined}
+                        />
                       </div>
 
                       <div className="space-y-3">

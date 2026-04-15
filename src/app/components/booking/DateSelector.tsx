@@ -1,9 +1,10 @@
 import React from 'react';
-import { Calendar, Users, Home, ArrowRight } from 'lucide-react';
+import { Users, Home, ArrowRight } from 'lucide-react';
 import { useBookingFlow } from '../../hooks/useBookingFlow';
+import { HeroDatePicker } from './HeroDatePicker';
 
 export function DateSelector({ flow }: { flow: ReturnType<typeof useBookingFlow> }) {
-  const { state, setState, checkAvailability, nextStep, updateDates, isLoading } = flow;
+  const { state, setState, checkAvailability, nextStep, updateDates } = flow;
 
   const handleNext = async () => {
     if (!state.checkIn || !state.checkOut) return;
@@ -14,39 +15,24 @@ export function DateSelector({ flow }: { flow: ReturnType<typeof useBookingFlow>
   return (
     <div className="max-w-3xl mx-auto py-8">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+        <h2 className="text-4xl md:text-5xl font-black text-[#434021] tracking-tight leading-none mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             Plan Your Journey
         </h2>
         <p className="text-slate-500 font-medium italic">"Select your window to the mountains"</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
-        <div className="space-y-3">
-          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Check In</label>
-          <div className="relative group">
-            <Calendar className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-amber-500 transition-colors" size={24} />
-            <input 
-              type="date" 
-              className="w-full pl-16 pr-6 py-6 bg-slate-50 border-none rounded-[2rem] focus:outline-none focus:ring-4 focus:ring-amber-500/10 transition-all font-bold text-slate-900 text-lg" 
-              value={state.checkIn}
-              onChange={(e) => updateDates(e.target.value, state.checkOut)}
-              min={new Date().toISOString().split('T')[0]}
-            />
-          </div>
-        </div>
-        <div className="space-y-3">
-          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">Check Out</label>
-          <div className="relative group">
-            <Calendar className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-amber-500 transition-colors" size={24} />
-            <input 
-              type="date" 
-              className="w-full pl-16 pr-6 py-6 bg-slate-50 border-none rounded-[2rem] focus:outline-none focus:ring-4 focus:ring-amber-500/10 transition-all font-bold text-slate-900 text-lg" 
-              value={state.checkOut}
-              onChange={(e) => updateDates(state.checkIn, e.target.value)}
-              min={state.checkIn || new Date().toISOString().split('T')[0]}
-            />
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <HeroDatePicker
+          label="Check In"
+          date={state.checkIn}
+          onSelect={(date) => updateDates(date, state.checkOut)}
+        />
+        <HeroDatePicker
+          label="Check Out"
+          date={state.checkOut}
+          onSelect={(date) => updateDates(state.checkIn, date)}
+          minDate={state.checkIn ? new Date(state.checkIn) : undefined}
+        />
       </div>
 
       {/* Total Nights - Auto Calculated */}
